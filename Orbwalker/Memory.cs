@@ -74,7 +74,7 @@ internal unsafe class Memory : IDisposable
 
     // better for preventing mouse movements in both camera modes
     public unsafe delegate void MoveOnMousePreventerDelegate(MoveControllerSubMemberForMine* thisx, float wishdir_h, float wishdir_v, char arg4, byte align_with_camera, Vector3* direction);
-    [Signature("48 8b C4 48 89 70 ?? 48 89 78 ?? 55 41 56 41 57", DetourName = nameof(MovementUpdate), Fallibility = Fallibility.Auto)]
+    [Signature("48 8B C4 48 89 70 18 48 89 78 20 55 41 56", DetourName = nameof(MovementUpdate), Fallibility = Fallibility.Auto)]
     public static Hook<MoveOnMousePreventerDelegate>? MouseAutoMoveHook { get; set; } = null!;
     [return: MarshalAs(UnmanagedType.U1)]
     public static unsafe void MovementUpdate(MoveControllerSubMemberForMine* thisx, float wishdir_h, float wishdir_v, char arg4, byte align_with_camera, Vector3* direction)
